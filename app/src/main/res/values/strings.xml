@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">ToDoForPhone</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_add_new_to_do_item">AddNewToDoItemActivity</string>
+    <string name="new_instructions">What is your new to do task?</string>
+    <string name="save">Save</string>
+    <string name="add">Add New Item</string>
+</resources>
