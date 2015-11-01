@@ -7,4 +7,5 @@
     <string name="new_instructions">What is your new to do task?</string>
     <string name="save">Save</string>
     <string name="add">Add New Item</string>
+    <string name="to_do_detail_delete_button_text">Delete Item</string>
 </resources>

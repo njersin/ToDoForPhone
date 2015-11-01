@@ -31,6 +31,7 @@ public class ToDoListFragment extends Fragment {
 
 		toDoListView.setAdapter(toDoArray);
 		toDoListView.setChoiceMode(ListView.CHOICE_MODE_SINGLE);
+		toDoListView.setDividerHeight(5);
 		toDoListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 			@Override
 			public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -53,14 +54,6 @@ public class ToDoListFragment extends Fragment {
 
 	}
 
-	private void addTestData() {
-
-		toDoArray.add("Write programs");
-		toDoArray.add("Walk the dog");
-		toDoArray.add("Buy milk");
-	}
-
-
 	void addNewItem(String newItem) {
 
 		toDoArray.add(newItem);
@@ -68,12 +61,16 @@ public class ToDoListFragment extends Fragment {
 
 	}
 
+	void deleteItem(String item) {
+		toDoArray.remove(item);
+		toDoArray.notifyDataSetChanged();
+	}
+
 	@Override
 	public void onAttach(Activity activity) {
 		super.onAttach(activity);
 
 		toDoArray = new ArrayAdapter<>(this.getActivity(), R.layout.list_view_to_do_item, R.id.list_item);
-		addTestData();
 
 		try {
 			selectedListener = (OnListItemSelectedListener) activity;

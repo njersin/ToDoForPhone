@@ -44,9 +44,7 @@ public class AddNewToDoItemFragment extends Fragment {
 
 			}
 		});
-
 		return view;
-
 	}
 
 

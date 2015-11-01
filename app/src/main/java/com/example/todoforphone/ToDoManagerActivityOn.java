@@ -11,7 +11,10 @@ import android.widget.Toast;
 
 //TODO the addToBackstack doesn't work with ActionBarActivity. Something to do with appcompat stuff - ug.
 
-public class ToDoManagerActivity extends Activity implements ToDoListFragment.OnListItemSelectedListener, ToDoListFragment.OnNewItemRequestListener, AddNewToDoItemFragment.OnNewToDoItemCreatedListener {
+public class ToDoManagerActivityOn extends Activity implements ToDoListFragment.OnListItemSelectedListener,
+		ToDoListFragment.OnNewItemRequestListener,
+		AddNewToDoItemFragment.OnNewToDoItemCreatedListener,
+		ToDoItemFragment.OnDeleteToDoItemListener {
 
 	public static final String TODO_DETAIL = "to do item detail text";
 
@@ -34,6 +37,16 @@ public class ToDoManagerActivity extends Activity implements ToDoListFragment.On
 
 		transaction.commit();
 
+	}
+
+	@Override
+	public void deleteToDoItem(String item) {
+		listFragment.deleteItem(item);
+		FragmentManager manager = getFragmentManager();
+		manager.popBackStack();
+		FragmentTransaction transaction = manager.beginTransaction();
+		transaction.replace(android.R.id.content, listFragment);
+		transaction.commit();
 	}
 
 
